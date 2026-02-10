@@ -1,0 +1,280 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    background-color: #faf8f5;
+    color: #1a1a1a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: rgba(204, 111, 77, 0.2);
+  }
+}
+
+@layer components {
+  /* Compass brand glow */
+  .compass-glow {
+    filter: drop-shadow(0 0 30px rgba(204, 111, 77, 0.25));
+  }
+
+  /* Card animations */
+  .card-enter {
+    animation: cardEnter 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .card-exit {
+    animation: cardExit 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+  }
+
+  /* Progress bar */
+  .progress-fill {
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Assessment option cards */
+  .option-card {
+    @apply border-2 border-brand-border rounded-2xl p-6 cursor-pointer transition-all duration-300 bg-white;
+  }
+
+  .option-card:hover {
+    @apply border-brand-terracotta/60 shadow-lg -translate-y-0.5;
+    background: linear-gradient(135deg, rgba(204, 111, 77, 0.03), rgba(204, 111, 77, 0.06));
+  }
+
+  .option-card.selected {
+    @apply border-brand-terracotta shadow-lg;
+    background: linear-gradient(135deg, rgba(204, 111, 77, 0.06), rgba(204, 111, 77, 0.12));
+  }
+
+  /* Reveal cards */
+  .reveal-card {
+    @apply min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center;
+  }
+
+  /* Premium button */
+  .share-btn {
+    @apply inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl font-heading font-semibold transition-all duration-300 shadow-lg text-sm tracking-wide;
+  }
+
+  .share-btn:hover {
+    @apply -translate-y-0.5 shadow-xl;
+  }
+
+  /* Stat badges */
+  .stat-badge {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-heading font-semibold;
+  }
+
+  /* Section divider */
+  .section-divider {
+    @apply w-full flex items-center gap-6 my-16;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    @apply flex-1 h-px bg-brand-border;
+  }
+
+  /* Premium card */
+  .premium-card {
+    @apply bg-white rounded-2xl shadow-sm border border-brand-border overflow-hidden;
+  }
+
+  .premium-card-padded {
+    @apply premium-card p-8 sm:p-10;
+  }
+
+  /* Score bar */
+  .score-bar-track {
+    @apply w-full h-3 rounded-full bg-gray-100 overflow-hidden;
+  }
+
+  .score-bar-fill {
+    @apply h-full rounded-full transition-all duration-1000 ease-out;
+  }
+
+  /* Subtle texture overlay */
+  .texture-bg {
+    position: relative;
+  }
+
+  .texture-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0.015;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Counter animation */
+  .counter-number {
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: 'tnum';
+  }
+
+  /* Stagger children animation */
+  .stagger-children > * {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger-children > *:nth-child(6) { animation-delay: 0.6s; }
+
+  /* Dimension card */
+  .dimension-card {
+    @apply premium-card transition-all duration-300;
+  }
+
+  .dimension-card:hover {
+    @apply shadow-md;
+  }
+
+  /* Insight highlight */
+  .insight-highlight {
+    @apply relative pl-6 border-l-4;
+  }
+
+  /* Large display number */
+  .display-number {
+    @apply font-heading font-black leading-none counter-number;
+    font-size: clamp(3rem, 8vw, 5rem);
+  }
+
+  /* Subtle gradient backgrounds */
+  .gradient-warm {
+    background: linear-gradient(180deg, #faf8f5 0%, #f5ede5 100%);
+  }
+
+  .gradient-dark {
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  }
+}
+
+/* Keyframe animations */
+@keyframes cardEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cardExit {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.96);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes radarDraw {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scoreBarFill {
+  0% {
+    width: 0%;
+  }
+}
+
+@keyframes revealGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(204, 111, 77, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 20px rgba(204, 111, 77, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(204, 111, 77, 0);
+  }
+}
+
+@keyframes typeReveal {
+  0% {
+    opacity: 0;
+    letter-spacing: 0.3em;
+    filter: blur(8px);
+  }
+  50% {
+    filter: blur(0px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: -0.02em;
+    filter: blur(0px);
+  }
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes dotPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* Print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: white;
+  }
+  .premium-card {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+}
