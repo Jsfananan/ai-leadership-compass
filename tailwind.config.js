@@ -8,24 +8,26 @@ export default {
     extend: {
       colors: {
         brand: {
-          terracotta: '#cc6f4d',
-          'terracotta-dark': '#a85a3d',
-          'terracotta-light': '#e8d5c4',
-          warm: '#faf8f5',
-          dark: '#1a1a1a',
+          terracotta: '#C4563A',
+          'terracotta-dark': '#A34830',
+          'terracotta-light': '#f0d9d0',
+          blue: '#4A90A4',
+          warm: '#FAFAFA',
+          dark: '#1A1A2E',
+          text: '#333333',
           border: '#e5e0db',
         },
         archetype: {
           observer: '#8b95a5',
           explorer: '#d4883e',
-          integrator: '#cc6f4d',
+          integrator: '#C4563A',
           architect: '#3b6fa0',
           amplifier: '#7b5ea7',
         }
       },
       fontFamily: {
-        heading: ['"Roboto Slab"', 'serif'],
-        body: ['Spectral', 'Georgia', 'serif'],
+        heading: ['Inter', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'system-ui', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

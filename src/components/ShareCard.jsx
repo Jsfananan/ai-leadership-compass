@@ -93,7 +93,7 @@ export default function ShareCard({ archetype, dimScores, totalScore, percentile
         {/* Card footer */}
         <div className="px-6 pb-6 text-center">
           <p className="font-heading text-xs text-gray-400">
-            leadershipinchange.com &middot; Take yours free
+            jsalinas.org &middot; Take yours free
           </p>
         </div>
       </div>

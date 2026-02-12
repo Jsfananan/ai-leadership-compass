@@ -53,7 +53,7 @@ The next phase for you isn\u2019t about learning more tools. It\u2019s about goi
     id: 'integrator',
     name: 'The Integrator',
     tagline: 'You\u2019re building the bridge others will cross.',
-    color: '#cc6f4d',
+    color: '#C4563A',
     colorLight: '#f5e0d5',
     range: [23, 28],
     description: `AI isn\u2019t a novelty for you \u2014 it\u2019s becoming part of how you think and work. You\u2019ve moved past experimentation into real integration, and people around you are starting to notice.

@@ -14,6 +14,7 @@ import {
   Quote,
 } from 'lucide-react';
 import { copyToClipboard } from '../utils/sharing';
+import CoachingCTA from './CoachingCTA';
 
 export default function TrainingGuide({ months, archetype, role }) {
   const [expandedMonth, setExpandedMonth] = useState(0);
@@ -200,6 +201,9 @@ export default function TrainingGuide({ months, archetype, role }) {
           </div>
         );
       })}
+
+      {/* CTA: Implementation support */}
+      <CoachingCTA variant="plan" archetypeColor={archetype.color} />
     </div>
   );
 }

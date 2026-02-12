@@ -9,15 +9,15 @@ export default function Landing({ onStart, challengerName }) {
       <nav className="w-full px-6 py-5 flex items-center justify-between max-w-5xl mx-auto relative z-10">
         <div className="flex items-center gap-2.5">
           <CompassIcon size={30} />
-          <span className="font-heading font-bold text-brand-dark text-base tracking-wide">Leadership in Change</span>
+          <span className="font-heading font-bold text-brand-dark text-base tracking-wide">jsalinas.org</span>
         </div>
         <a
-          href="https://leadershipinchange.com"
+          href="https://jsalinas.org?utm_source=compass&utm_medium=nav&utm_campaign=tool"
           target="_blank"
           rel="noopener noreferrer"
           className="text-sm font-heading font-semibold text-brand-terracotta hover:text-brand-terracotta-dark transition-colors"
         >
-          Subscribe
+          AI Coaching
         </a>
       </nav>
 
@@ -38,7 +38,7 @@ export default function Landing({ onStart, challengerName }) {
 
           <p
             className="animate-fade-in-up font-heading text-xs font-bold tracking-[0.3em] uppercase mb-6"
-            style={{ animationDelay: '0.15s', opacity: 0, color: '#cc6f4d' }}
+            style={{ animationDelay: '0.15s', opacity: 0, color: '#C4563A' }}
           >
             AI Leadership Compass
           </p>
