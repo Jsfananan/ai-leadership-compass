@@ -32,10 +32,10 @@ export default function EmailGate({ archetype, onContinue }) {
           style={{ animationDelay: '0.3s', opacity: 0 }}
         >
           <p className="font-heading text-sm font-semibold text-brand-dark mb-2">
-            Want weekly AI leadership insights?
+            Join my newsletter
           </p>
           <p className="font-body text-sm text-gray-500 mb-5 leading-relaxed">
-            Join 1,000+ leaders getting actionable AI strategies every week.
+            4,000+ leaders worldwide get human-centered AI insights, tools, and frameworks every week.
           </p>
           <a
             href="https://leadershipinchange.com?utm_source=compass&utm_medium=interstitial&utm_campaign=subscribe"

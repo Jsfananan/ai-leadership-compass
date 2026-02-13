@@ -20,5 +20,5 @@
 - No accounts — fully client-side, sessionless, shareable
 
 ## Deploy
-- No remote configured yet — needs to be pushed to GitHub
-- Should deploy via Vercel or GitHub Pages
+- Live at compass.jsalinas.org
+- Repository: Jsfananan/ai-leadership-compass
