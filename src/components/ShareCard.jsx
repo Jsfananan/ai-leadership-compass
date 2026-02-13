@@ -1,15 +1,26 @@
 import React, { useRef, useState } from 'react';
-import { Download, Copy, Link, Check, Users } from 'lucide-react';
+import { Download, Copy, Link, Check, Users, Linkedin, ChevronDown, ChevronUp } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import CompassIcon from './CompassIcon';
 import RadarChart from './RadarChart';
-import { copyToClipboard, encodeResults, generateChallengeUrl, generateShareText } from '../utils/sharing';
+import { copyToClipboard, encodeResults, generateChallengeUrl, generateShareText, getLinkedInTemplates } from '../utils/sharing';
 
 export default function ShareCard({ archetype, dimScores, totalScore, percentile, topDimension, role, industry, goal }) {
   const cardRef = useRef(null);
   const [copiedLink, setCopiedLink] = useState(false);
   const [copiedChallenge, setCopiedChallenge] = useState(false);
   const [downloading, setDownloading] = useState(false);
+  const [showTemplates, setShowTemplates] = useState(false);
+  const [copiedTemplate, setCopiedTemplate] = useState(null);
+
+  const templates = getLinkedInTemplates(archetype, totalScore, percentile);
+
+  const handleCopyTemplate = async (text, index) => {
+    const url = encodeResults(archetype, dimScores, role, industry, goal);
+    await copyToClipboard(text + '\n\n' + url);
+    setCopiedTemplate(index);
+    setTimeout(() => setCopiedTemplate(null), 2000);
+  };
 
   const handleDownload = async () => {
     if (!cardRef.current) return;
@@ -25,6 +36,7 @@ export default function ShareCard({ archetype, dimScores, totalScore, percentile
       link.click();
     } catch (err) {
       console.error('Download failed:', err);
+      alert('Image download failed. Try using "Copy Results Link" instead.');
     }
     setDownloading(false);
   };
@@ -127,9 +139,44 @@ export default function ShareCard({ archetype, dimScores, totalScore, percentile
         </button>
       </div>
 
-      <p className="text-center text-xs text-gray-400 font-body no-print">
-        Share your archetype on LinkedIn and challenge others to discover theirs.
-      </p>
+      {/* LinkedIn Templates */}
+      <div className="no-print">
+        <button
+          onClick={() => setShowTemplates(!showTemplates)}
+          className="w-full flex items-center justify-center gap-2 text-sm font-heading font-semibold text-gray-500 hover:text-brand-terracotta transition-colors py-3"
+        >
+          <Linkedin className="w-4 h-4" />
+          {showTemplates ? 'Hide' : 'Copy a ready-made'} LinkedIn post
+          {showTemplates ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+        </button>
+
+        {showTemplates && (
+          <div className="space-y-4 animate-fade-in">
+            {templates.map((tpl, i) => (
+              <div key={i} className="bg-white rounded-xl p-5 border border-brand-border">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-heading text-sm font-semibold text-brand-dark">{tpl.label}</span>
+                  <button
+                    onClick={() => handleCopyTemplate(tpl.text, i)}
+                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-heading font-semibold transition-all ${
+                      copiedTemplate === i
+                        ? 'bg-green-600 text-white'
+                        : 'text-white'
+                    }`}
+                    style={copiedTemplate === i ? {} : { backgroundColor: archetype.color }}
+                  >
+                    {copiedTemplate === i ? <Check className="w-3 h-3" /> : <Copy className="w-3 h-3" />}
+                    {copiedTemplate === i ? 'Copied!' : 'Copy'}
+                  </button>
+                </div>
+                <p className="font-body text-xs text-gray-600 leading-relaxed whitespace-pre-line line-clamp-4">
+                  {tpl.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

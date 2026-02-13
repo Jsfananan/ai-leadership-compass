@@ -17,6 +17,7 @@ export default function Assessment({ onComplete, onBack }) {
   }, [currentQ]);
 
   const handleAnswer = (value) => {
+    if (transitioning) return;
     const newAnswers = { ...answers, [currentQ]: value };
     setAnswers(newAnswers);
 

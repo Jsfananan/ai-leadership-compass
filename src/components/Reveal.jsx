@@ -35,7 +35,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
     // Card 0: Dramatic build-up with analyzing dots
     <div key="0" className="reveal-card gradient-dark text-white">
       <div className="animate-fade-in-scale">
-        <CompassIcon size={100} color="#cc6f4d" spinning className="mb-12 compass-glow" />
+        <CompassIcon size={100} color={archetype.color} spinning className="mb-12 compass-glow" />
         <p className="font-heading text-2xl sm:text-3xl text-gray-300 max-w-lg leading-relaxed mb-6">
           Analyzing your responses across
           <span className="text-brand-terracotta font-bold"> 5 dimensions </span>

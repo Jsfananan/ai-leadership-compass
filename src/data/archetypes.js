@@ -2,24 +2,20 @@ export const archetypes = {
   observer: {
     id: 'observer',
     name: 'The Observer',
-    tagline: 'You see the wave coming. Now it\u2019s time to ride it.',
+    tagline: "You see the wave coming. Now it's time to ride it.",
     color: '#8b95a5',
     colorLight: '#e8edf2',
     range: [10, 16],
-    description: `You see the landscape clearly \u2014 the headlines, the hype, the genuine opportunities. Where others react impulsively, you\u2019ve been watching with the careful eye of someone who values substance over noise.
-
-Your strength isn\u2019t that you\u2019re behind. It\u2019s that when you move, you\u2019ll move with intention. The leaders who truly transform their fields aren\u2019t always the first to adopt \u2014 they\u2019re the ones who adopt wisely.
-
-Your awareness is already an advantage most people don\u2019t have. You\u2019re not starting from zero. You\u2019re starting from clarity.`,
+    description: "You see the landscape clearly \u2014 the headlines, the hype, the genuine opportunities. While others are scrambling, you're building clarity. You see what's real and what's hype. That clarity is your edge \u2014 and it compounds.\n\nThe leaders who truly transform their fields aren't always the first to adopt \u2014 they're the ones who adopt wisely. Your awareness is already an advantage most people don't have.\n\nYou're not starting from zero. You're starting from clarity.",
     strengths: [
-      'Thoughtful decision-making under pressure',
-      'Ability to separate hype from genuine opportunity',
-      'Natural skepticism that protects against costly mistakes',
+      "You spot what others miss \u2014 the real opportunities hiding in the noise",
+      "You move when the time is right, not when FOMO kicks in",
+      "Your skepticism has saved your org money \u2014 more than once",
     ],
     growth: [
-      'Move from observation to experimentation',
-      'Start with one AI tool for one specific task this week',
-      'Let yourself be imperfect \u2014 learning beats planning',
+      "Move from observation to experimentation \u2014 pick one tool this week",
+      "Start with one AI task for one specific workflow",
+      "Let yourself be imperfect \u2014 learning beats planning every time",
     ],
     stat: 'Leaders who adopt AI intentionally (not reactively) achieve 40% higher ROI on AI initiatives.',
     statSource: 'Deloitte, 2024',
@@ -27,24 +23,20 @@ Your awareness is already an advantage most people don\u2019t have. You\u2019re 
   explorer: {
     id: 'explorer',
     name: 'The Explorer',
-    tagline: 'Your curiosity is your greatest asset. Channel it.',
+    tagline: "You're already ahead because you're willing to look stupid while learning.",
     color: '#d4883e',
     colorLight: '#f5e6d3',
     range: [17, 22],
-    description: `You\u2019ve already done what most won\u2019t \u2014 you\u2019ve started. While others debate whether AI matters, you\u2019ve been testing, learning, and building your intuition for what works.
-
-Explorers like you have a rare combination: the curiosity to experiment and the humility to learn from what doesn\u2019t work. This is the stage where breakthroughs happen \u2014 not in mastery, but in discovery.
-
-The next phase for you isn\u2019t about learning more tools. It\u2019s about going deeper with the right ones.`,
+    description: "While others debate whether AI matters, you're shipping. That matters. Your willingness to break things, learn fast, and iterate puts you ahead of 90% of leaders.\n\nExplorers like you have a rare combination: the curiosity to experiment and the guts to learn from what doesn't work. This is where breakthroughs happen \u2014 not in mastery, but in discovery.\n\nThe next phase isn't about learning more tools. It's about going deeper with the right ones.",
     strengths: [
-      'Natural curiosity that drives continuous learning',
-      'Willingness to experiment and tolerate ambiguity',
-      'Growing intuition for where AI adds real value',
+      "You learn by doing, not by studying \u2014 and you learn fast",
+      "You're building the intuition that others won't have for 2 years",
+      "You fail small and iterate \u2014 that's how breakthroughs happen",
     ],
     growth: [
-      'Choose 2\u20133 tools and master them deeply instead of sampling many',
-      'Build repeatable workflows, not one-off experiments',
-      'Start sharing what you learn \u2014 teaching accelerates mastery',
+      "Choose 2\u20133 tools and master them instead of sampling many",
+      "Build repeatable workflows, not one-off experiments",
+      "Start sharing what you learn \u2014 teaching accelerates mastery",
     ],
     stat: 'AI fluency demand has grown 7x in two years \u2014 from 1 million to 7 million jobs requiring AI skills.',
     statSource: 'McKinsey, 2025',
@@ -52,24 +44,20 @@ The next phase for you isn\u2019t about learning more tools. It\u2019s about goi
   integrator: {
     id: 'integrator',
     name: 'The Integrator',
-    tagline: 'You\u2019re building the bridge others will cross.',
+    tagline: "You're building the bridge others will cross.",
     color: '#C4563A',
     colorLight: '#f5e0d5',
     range: [23, 28],
-    description: `AI isn\u2019t a novelty for you \u2014 it\u2019s becoming part of how you think and work. You\u2019ve moved past experimentation into real integration, and people around you are starting to notice.
-
-What makes Integrators powerful isn\u2019t just tool proficiency \u2014 it\u2019s the ability to see connections between AI capabilities and real human challenges. You\u2019re building the bridge that others will eventually cross.
-
-The question now isn\u2019t whether AI fits into your work. It\u2019s how far you\u2019re willing to let it amplify what you do best.`,
+    description: "You've stopped treating AI as a tool. It's how you think now. The people around you are starting to notice \u2014 and they want what you have.\n\nWhat makes Integrators powerful isn't just tool proficiency \u2014 it's the ability to see connections between AI capabilities and real human challenges. You're building the bridge that others will eventually cross.\n\nThe question now isn't whether AI fits into your work. It's how far you're willing to let it amplify what you do best.",
     strengths: [
-      'Consistent AI integration into real workflows',
-      'Ability to connect AI capabilities to human needs',
-      'Growing influence as others seek your guidance',
+      "Your workflows now run on AI + human judgment (true collaboration)",
+      "You see problems others can't solve and AI solutions they haven't considered",
+      'People are starting to ask: "How did you do that so fast?"',
     ],
     growth: [
-      'Document your workflows so others can follow your path',
-      'Push into strategic AI use, not just operational',
-      'Begin leading AI adoption conversations in your organization',
+      "Document your workflows so others can follow your path",
+      "Push into strategic AI use, not just operational",
+      "Begin leading AI adoption conversations in your organization",
     ],
     stat: 'GPT-4 boosted consultant task completion by 12%, speed by 25%, and quality by 40% in a Harvard study of 758 professionals.',
     statSource: 'Harvard Business School / BCG, 2024',
@@ -77,24 +65,20 @@ The question now isn\u2019t whether AI fits into your work. It\u2019s how far yo
   architect: {
     id: 'architect',
     name: 'The Architect',
-    tagline: 'You don\u2019t just use AI \u2014 you design how others will.',
+    tagline: "You don't just use AI \u2014 you design how others will.",
     color: '#3b6fa0',
     colorLight: '#dce8f3',
     range: [29, 34],
-    description: `You don\u2019t just use AI \u2014 you design systems around it. While others are learning prompts, you\u2019re building workflows, training teams, and rethinking processes.
-
-Architects are rare: you combine deep tool knowledge with strategic vision, seeing not just what AI can do today, but how it reshapes what\u2019s possible tomorrow. The influence you\u2019re building isn\u2019t just personal \u2014 it\u2019s organizational.
-
-The frameworks you create now will define how others work for years to come.`,
+    description: "You don't just use AI \u2014 you design systems around it. While others are learning prompts, you're multiplying impact across your whole organization.\n\nArchitects are rare: you combine deep tool knowledge with strategic vision, seeing not just what AI can do today, but how it reshapes what's possible tomorrow. The influence you're building isn't just personal \u2014 it's organizational.\n\nThe frameworks you create now will define how thousands of people work.",
     strengths: [
-      'Systems thinking that connects AI to organizational strategy',
-      'Ability to train and uplift others at scale',
-      'Vision for how AI reshapes your entire field',
+      "You see organizational problems; others see bugs. You see systems; others see tasks.",
+      "You're not building AI tools. You're building the infrastructure for how your field works.",
+      "Your team runs on frameworks you created \u2014 and other organizations want them.",
     ],
     growth: [
-      'Formalize your frameworks into teachable systems',
-      'Explore AI agent workflows and multi-tool orchestration',
-      'Position yourself as a visible thought leader in your domain',
+      "Formalize your frameworks into teachable systems",
+      "Explore AI agent workflows and multi-tool orchestration",
+      "Position yourself as a visible thought leader in your domain",
     ],
     stat: 'Only 2% of board members are highly knowledgeable about AI. Leaders like you fill a critical gap.',
     statSource: 'MIT Sloan Management Review, 2025',
@@ -102,24 +86,20 @@ The frameworks you create now will define how others work for years to come.`,
   amplifier: {
     id: 'amplifier',
     name: 'The Amplifier',
-    tagline: 'AI doesn\u2019t replace your leadership. It radiates it.',
+    tagline: "AI doesn't replace your leadership. It radiates it.",
     color: '#7b5ea7',
     colorLight: '#ebe4f3',
     range: [35, 40],
-    description: `AI doesn\u2019t just support your work \u2014 it radiates your impact. You\u2019ve reached the stage where the technology dissolves into the background, and what people see is extraordinary output, deeper thinking, and a presence that feels ahead of the curve.
-
-Amplifiers don\u2019t work harder with AI. They work with a clarity and speed that others can\u2019t quite explain. But here\u2019s what truly sets you apart: you don\u2019t hoard this advantage. You\u2019re drawn to lifting others into it.
-
-You\u2019re not just AI-enhanced. You\u2019re AI-supercharged.`,
+    description: "People don't see the AI. They see you. Your output is so far ahead of where it should be that it almost doesn't make sense. That's Amplifier mode.\n\nAmplifiers don't work harder with AI. They work with a clarity and speed that others can't quite explain. But here's what truly sets you apart: you don't hoard this advantage. You're drawn to lifting others into it.\n\nYou're not just AI-enhanced. You're AI-supercharged.",
     strengths: [
-      'Seamless human-AI collaboration (true Cyborg mode)',
-      'Multiplied output without sacrificing depth or authenticity',
-      'Natural drive to mentor and elevate others',
+      "Your thinking and AI's capabilities move together so smoothly it's just... you",
+      "You're 10x more productive and 2x more thoughtful \u2014 not a tradeoff",
+      "You're the person other leaders are quietly trying to figure out how to be",
     ],
     growth: [
-      'Build public thought leadership content (write, speak, teach)',
-      'Explore cutting-edge: AI agents, multi-model orchestration, custom AI',
-      'Create the playbooks that will define your industry\u2019s AI future',
+      "Build public thought leadership content (write, speak, teach)",
+      "Explore cutting-edge: AI agents, multi-model orchestration, custom AI",
+      "Create the playbooks that will define your industry's AI future",
     ],
     stat: 'Workers with strong AI skills earn a 56% wage premium \u2014 up from 25% the prior year.',
     statSource: 'PwC AI Jobs Barometer, 2025',

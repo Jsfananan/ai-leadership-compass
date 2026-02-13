@@ -3,6 +3,7 @@ import Landing from './components/Landing';
 import ContextForm from './components/ContextForm';
 import Assessment from './components/Assessment';
 import Reveal from './components/Reveal';
+import EmailGate from './components/EmailGate';
 import Results from './components/Results';
 import { getArchetype, getArchetypeById } from './data/archetypes';
 import { calculateScores, getDimensionPercentages, getTopDimension, getPercentileEstimate } from './utils/scoring';
@@ -10,11 +11,35 @@ import { decodeResults, getChallengeInfo } from './utils/sharing';
 
 const SCREENS = {
   LANDING: 'landing',
-  CONTEXT: 'context',
   ASSESSMENT: 'assessment',
+  CONTEXT: 'context',
   REVEAL: 'reveal',
+  EMAIL_GATE: 'email_gate',
   RESULTS: 'results',
 };
+
+const STORAGE_KEY = 'ai-compass-state';
+
+function saveState(data) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  } catch {}
+}
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch {
+    return null;
+  }
+}
+
+function clearState() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {}
+}
 
 export default function App() {
   const [screen, setScreen] = useState(SCREENS.LANDING);
@@ -23,8 +48,9 @@ export default function App() {
   const [archetype, setArchetype] = useState(null);
   const [challengerName, setChallengerName] = useState(null);
   const [challengerArchetype, setChallengerArchetype] = useState(null);
+  const [answers, setAnswers] = useState(null);
 
-  // Check URL for shared results or challenge on mount
+  // Check URL for shared results or challenge on mount, then check localStorage
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const decoded = decodeResults(params);
@@ -50,6 +76,15 @@ export default function App() {
         goal: decoded.goal,
       });
       setScreen(SCREENS.RESULTS);
+    } else {
+      // Check localStorage for saved progress
+      const saved = loadState();
+      if (saved && saved.scores && saved.archetype) {
+        setScores(saved.scores);
+        setArchetype(getArchetypeById(saved.archetype));
+        setContext(saved.context || { role: '', industry: '', goal: '' });
+        setScreen(saved.screen || SCREENS.RESULTS);
+      }
     }
 
     // Clean URL without reload
@@ -63,22 +98,33 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [screen]);
 
-  const handleStart = () => setScreen(SCREENS.CONTEXT);
+  // New flow: Landing → Assessment → Context → Reveal → EmailGate → Results
+  const handleStart = () => setScreen(SCREENS.ASSESSMENT);
 
-  const handleContextSubmit = (ctx) => {
-    setContext(ctx);
-    setScreen(SCREENS.ASSESSMENT);
-  };
-
-  const handleAssessmentComplete = (answers) => {
-    const result = calculateScores(answers);
+  const handleAssessmentComplete = (ans) => {
+    const result = calculateScores(ans);
     const arch = getArchetype(result.totalScore);
     setScores(result);
     setArchetype(arch);
+    setAnswers(ans);
+    // Save progress
+    saveState({ scores: result, archetype: arch.id, screen: SCREENS.CONTEXT });
+    setScreen(SCREENS.CONTEXT);
+  };
+
+  const handleContextSubmit = (ctx) => {
+    setContext(ctx);
+    saveState({ scores, archetype: archetype.id, context: ctx, screen: SCREENS.REVEAL });
     setScreen(SCREENS.REVEAL);
   };
 
   const handleRevealComplete = () => {
+    saveState({ scores, archetype: archetype.id, context, screen: SCREENS.EMAIL_GATE });
+    setScreen(SCREENS.EMAIL_GATE);
+  };
+
+  const handleEmailGateComplete = () => {
+    saveState({ scores, archetype: archetype.id, context, screen: SCREENS.RESULTS });
     setScreen(SCREENS.RESULTS);
   };
 
@@ -87,8 +133,10 @@ export default function App() {
     setContext({ role: '', industry: '', goal: '' });
     setScores(null);
     setArchetype(null);
+    setAnswers(null);
     setChallengerName(null);
     setChallengerArchetype(null);
+    clearState();
   };
 
   const topDimension = scores ? getTopDimension(scores.dimScores) : null;
@@ -98,19 +146,19 @@ export default function App() {
     case SCREENS.LANDING:
       return <Landing onStart={handleStart} challengerName={challengerName} />;
 
-    case SCREENS.CONTEXT:
-      return (
-        <ContextForm
-          onSubmit={handleContextSubmit}
-          onBack={() => setScreen(SCREENS.LANDING)}
-        />
-      );
-
     case SCREENS.ASSESSMENT:
       return (
         <Assessment
           onComplete={handleAssessmentComplete}
-          onBack={() => setScreen(SCREENS.CONTEXT)}
+          onBack={() => setScreen(SCREENS.LANDING)}
+        />
+      );
+
+    case SCREENS.CONTEXT:
+      return (
+        <ContextForm
+          onSubmit={handleContextSubmit}
+          onBack={() => setScreen(SCREENS.ASSESSMENT)}
         />
       );
 
@@ -123,6 +171,14 @@ export default function App() {
           percentile={percentile}
           topDimension={topDimension}
           onComplete={handleRevealComplete}
+        />
+      );
+
+    case SCREENS.EMAIL_GATE:
+      return (
+        <EmailGate
+          archetype={archetype}
+          onContinue={handleEmailGateComplete}
         />
       );
 

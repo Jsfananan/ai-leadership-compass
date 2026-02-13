@@ -80,6 +80,23 @@ export function generateShareText(archetype) {
   return `I just took the AI Leadership Compass and I'm "${archetype.name}" \u2014 ${archetype.tagline}\n\nWhat's YOUR AI Leadership Archetype? Take the free 2-minute assessment:`;
 }
 
+export function getLinkedInTemplates(archetype, totalScore, percentile) {
+  return [
+    {
+      label: 'The Discovery Post',
+      text: `Just discovered I'm "${archetype.name}" on the AI Leadership Compass.\n\n${archetype.tagline}\n\nScored ${totalScore}/40 (top ${percentile}% of leaders assessed).\n\nThe assessment measures 5 dimensions of AI leadership \u2014 and the personalized growth plan was surprisingly actionable.\n\n2 minutes. Free. No account needed.\n\nWhat's YOUR AI leadership archetype?\n\n#AILeadership #FutureOfWork #AI`,
+    },
+    {
+      label: 'The Challenge Post',
+      text: `I challenge my network to take this.\n\nI just took the AI Leadership Compass and scored ${totalScore}/40 as "${archetype.name}"\n\nIt measures 5 research-backed dimensions of AI leadership:\n\u2022 AI Awareness\n\u2022 Tool Proficiency\n\u2022 Strategic Integration\n\u2022 Human-AI Collaboration\n\u2022 Change Leadership\n\nTook 2 minutes. Free. No sign-up.\n\nDrop your archetype in the comments. Let's see who's leading the AI transformation.\n\n#AILeadership #Leadership #FutureOfWork`,
+    },
+    {
+      label: 'The Insight Post',
+      text: `39% of skills will be outdated by 2030 (WEF).\n\nI just assessed my AI leadership readiness \u2014 and here's what I learned:\n\nI'm "${archetype.name}" \u2014 ${archetype.tagline}\n\nThe AI Leadership Compass breaks your readiness into 5 dimensions. My biggest gap? I'll be working on it this quarter.\n\nWhat's your biggest gap? Take the free assessment and find out.\n\n#AI #Leadership #ProfessionalDevelopment`,
+    },
+  ];
+}
+
 export function generateFullPlanText(archetype, dimScores, role, industry, goal, months) {
   let text = `AI LEADERSHIP COMPASS \u2014 Your Personalized Growth Plan\n`;
   text += `${'='.repeat(50)}\n\n`;
@@ -112,7 +129,7 @@ export function generateFullPlanText(archetype, dimScores, role, industry, goal,
     text += `${'='.repeat(50)}\n\n`;
   });
 
-  text += `Created with AI Leadership Compass by Leadership in Change\n`;
-  text += `https://leadershipinchange.com\n`;
+  text += `Created with AI Leadership Compass by Joel Salinas\n`;
+  text += `https://jsalinas.org\n`;
   return text;
 }

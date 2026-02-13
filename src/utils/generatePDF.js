@@ -13,12 +13,13 @@ function hexToRgb(hex) {
 }
 
 export function generateResultsPDF(archetype, dimScores, totalScore, percentile, role, industry, goal, months) {
-  const doc = new jsPDF('p', 'mm', 'a4');
-  const pageWidth = 210;
-  const margin = 20;
-  const contentWidth = pageWidth - margin * 2;
-  let y = 20;
-  const accentRgb = hexToRgb(archetype.color);
+  try {
+    const doc = new jsPDF('p', 'mm', 'a4');
+    const pageWidth = 210;
+    const margin = 20;
+    const contentWidth = pageWidth - margin * 2;
+    let y = 20;
+    const accentRgb = hexToRgb(archetype.color);
 
   function checkPageBreak(needed) {
     if (y + needed > 275) {
@@ -275,4 +276,8 @@ export function generateResultsPDF(archetype, dimScores, totalScore, percentile,
   );
 
   doc.save(`AI-Leadership-Compass-${archetype.name.replace(/\s+/g, '-')}.pdf`);
+  } catch (error) {
+    console.error('PDF generation error:', error);
+    alert('PDF generation failed. Please try the "Copy Entire Plan" option instead.');
+  }
 }

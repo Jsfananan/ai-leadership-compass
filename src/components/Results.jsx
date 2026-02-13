@@ -6,6 +6,8 @@ import {
   RefreshCw,
   ExternalLink,
   ChevronRight,
+  ChevronDown,
+  ChevronUp,
   TrendingUp,
   Shield,
   Lightbulb,
@@ -14,7 +16,6 @@ import {
 import CompassIcon from './CompassIcon';
 import ShareCard from './ShareCard';
 import DimensionDeepDive from './DimensionDeepDive';
-import CrossDimensionInsights from './CrossDimensionInsights';
 import TrainingGuide from './TrainingGuide';
 import CoachingCTA from './CoachingCTA';
 import { generateTrainingPlan } from '../data/trainingPlans';
@@ -33,6 +34,7 @@ export default function Results({
   onRestart,
 }) {
   const [copiedPlan, setCopiedPlan] = useState(false);
+  const [showStrengths, setShowStrengths] = useState(false);
   const months = generateTrainingPlan(role, archetype, goal, industry);
 
   const handleCopyFullPlan = async () => {
@@ -71,7 +73,6 @@ export default function Results({
             className="rounded-3xl p-10 sm:p-14 text-center relative overflow-hidden"
             style={{ backgroundColor: archetype.colorLight }}
           >
-            {/* Subtle compass watermark */}
             <div className="absolute top-6 right-6 opacity-[0.04]">
               <CompassIcon size={200} color={archetype.color} />
             </div>
@@ -95,58 +96,72 @@ export default function Results({
               <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">
                 Score: {totalScore}/40
               </span>
-              <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">
-                {role}
-              </span>
+              {role && (
+                <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">
+                  {role}
+                </span>
+              )}
             </div>
           </div>
         </section>
 
         {/* ============================================
-            SECTION 2: Strengths & Growth at a Glance
+            SECTION 2: Strengths & Growth (collapsible)
             ============================================ */}
         <section className="mb-4">
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Strengths */}
-            <div className="premium-card-padded">
-              <h3 className="font-heading text-lg font-bold text-brand-dark mb-5 flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: archetype.color + '15' }}>
-                  <Shield className="w-4 h-4" style={{ color: archetype.color }} />
-                </div>
-                Your Strengths
-              </h3>
-              <ul className="space-y-4">
-                {archetype.strengths.map((s, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <ChevronRight className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: archetype.color }} />
-                    <span className="font-body text-sm text-gray-700 leading-relaxed">{s}</span>
-                  </li>
-                ))}
-              </ul>
+          <button
+            onClick={() => setShowStrengths(!showStrengths)}
+            className="w-full premium-card-padded flex items-center justify-between cursor-pointer hover:shadow-md transition-shadow"
+          >
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ backgroundColor: archetype.color + '15' }}>
+                <Shield className="w-5 h-5" style={{ color: archetype.color }} />
+              </div>
+              <div className="text-left">
+                <h3 className="font-heading text-lg font-bold text-brand-dark">Strengths & Growth Opportunities</h3>
+                <p className="text-sm text-gray-500 font-body">What you do well and where to level up</p>
+              </div>
             </div>
+            {showStrengths ? <ChevronUp className="w-5 h-5 text-gray-400" /> : <ChevronDown className="w-5 h-5 text-gray-400" />}
+          </button>
 
-            {/* Growth */}
-            <div className="premium-card-padded">
-              <h3 className="font-heading text-lg font-bold text-brand-dark mb-5 flex items-center gap-2.5">
-                <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: archetype.color + '15' }}>
+          {showStrengths && (
+            <div className="grid md:grid-cols-2 gap-6 mt-6 animate-fade-in">
+              <div className="premium-card-padded">
+                <h3 className="font-heading text-lg font-bold text-brand-dark mb-5 flex items-center gap-2.5">
+                  <Shield className="w-4 h-4" style={{ color: archetype.color }} />
+                  Your Strengths
+                </h3>
+                <ul className="space-y-4">
+                  {archetype.strengths.map((s, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <ChevronRight className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: archetype.color }} />
+                      <span className="font-body text-sm text-gray-700 leading-relaxed">{s}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="premium-card-padded">
+                <h3 className="font-heading text-lg font-bold text-brand-dark mb-5 flex items-center gap-2.5">
                   <TrendingUp className="w-4 h-4" style={{ color: archetype.color }} />
-                </div>
-                Growth Opportunities
-              </h3>
-              <ul className="space-y-4">
-                {archetype.growth.map((g, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <Lightbulb className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: archetype.color }} />
-                    <span className="font-body text-sm text-gray-700 leading-relaxed">{g}</span>
-                  </li>
-                ))}
-              </ul>
+                  Growth Opportunities
+                </h3>
+                <ul className="space-y-4">
+                  {archetype.growth.map((g, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <Lightbulb className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: archetype.color }} />
+                      <span className="font-body text-sm text-gray-700 leading-relaxed">{g}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          )}
         </section>
 
         {/* ============================================
-            CTA 1: Coaching — after seeing gaps
+            CTA: Coaching — after seeing gaps
             ============================================ */}
         <CoachingCTA variant="gaps" archetypeColor={archetype.color} />
 
@@ -168,19 +183,7 @@ export default function Results({
         </div>
 
         {/* ============================================
-            SECTION 4: Cross-Dimension Insights
-            ============================================ */}
-        <section className="mb-4">
-          <CrossDimensionInsights dimScores={dimScores} archetypeColor={archetype.color} />
-        </section>
-
-        {/* DIVIDER */}
-        <div className="section-divider">
-          <CompassIcon size={28} color={archetype.color} />
-        </div>
-
-        {/* ============================================
-            SECTION 5: Share Card
+            SECTION 4: Share Card
             ============================================ */}
         <section className="mb-4">
           <div className="text-center mb-10">
@@ -215,7 +218,7 @@ export default function Results({
         </div>
 
         {/* ============================================
-            SECTION 6: Training Guide
+            SECTION 5: Training Guide
             ============================================ */}
         <section>
           <TrainingGuide months={months} archetype={archetype} role={role} />
@@ -247,38 +250,23 @@ export default function Results({
           </button>
         </div>
 
-        {/* Footer */}
+        {/* Footer — single primary CTA */}
         <footer className="mt-20 pt-10 border-t border-brand-border text-center pb-10">
           <CompassIcon size={44} color="#C4563A" className="mx-auto mb-5" />
           <h3 className="font-heading text-2xl font-bold text-brand-dark mb-2">Ready for Your Next Step?</h3>
           <p className="font-body text-gray-500 mb-6 max-w-md mx-auto leading-relaxed">
             Get direct access to AI expertise and implementation support.
-            1:1 coaching, team workshops, and custom AI builds for your workflow.
+            1:1 coaching, team workshops, and custom AI builds.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
-            <a
-              href="https://jsalinas.org/services/executive-coaching.html?utm_source=compass&utm_medium=footer&utm_campaign=coaching"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-btn bg-brand-terracotta text-white hover:bg-brand-terracotta-dark"
-            >
-              Book a Free Discovery Call
-              <ArrowRight className="w-4 h-4" />
-            </a>
-            <a
-              href="https://leadershipinchange.com?utm_source=compass&utm_medium=footer&utm_campaign=newsletter"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="share-btn bg-white text-brand-dark border-2 border-brand-border hover:border-brand-terracotta"
-            >
-              Subscribe to the Newsletter
-              <ExternalLink className="w-4 h-4" />
-            </a>
-          </div>
-          <p className="text-xs text-gray-400 font-body max-w-md mx-auto">
-            Join 3,700+ leaders getting weekly AI leadership playbooks from{' '}
-            <a href="https://leadershipinchange.com" target="_blank" rel="noopener noreferrer" className="text-brand-terracotta hover:underline">Leadership in Change</a>.
-          </p>
+          <a
+            href="https://jsalinas.org/services/executive-coaching.html?utm_source=compass&utm_medium=footer&utm_campaign=coaching"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="share-btn bg-brand-terracotta text-white hover:bg-brand-terracotta-dark"
+          >
+            Book a Free Discovery Call
+            <ArrowRight className="w-4 h-4" />
+          </a>
           <p className="mt-8 text-xs text-gray-300 font-heading">
             Built by Joel Salinas &middot; jsalinas.org
           </p>

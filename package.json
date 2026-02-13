@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vercel/og": "^0.8.6",
     "html-to-image": "^1.11.11",
     "jspdf": "^4.1.0",
     "lucide-react": "^0.460.0",

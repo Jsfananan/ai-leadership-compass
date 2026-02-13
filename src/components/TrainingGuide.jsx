@@ -12,6 +12,7 @@ import {
   Target,
   TrendingUp,
   Quote,
+  Lock,
 } from 'lucide-react';
 import { copyToClipboard } from '../utils/sharing';
 import CoachingCTA from './CoachingCTA';
@@ -66,39 +67,61 @@ export default function TrainingGuide({ months, archetype, role }) {
       {/* Monthly cards */}
       {months.map((month, index) => {
         const isExpanded = expandedMonth === index;
+        const isLocked = index > 0;
         return (
           <div
             key={index}
-            className="bg-white rounded-2xl shadow-sm border border-brand-border overflow-hidden transition-all duration-300"
+            className={`bg-white rounded-2xl shadow-sm border border-brand-border overflow-hidden transition-all duration-300 ${isLocked ? 'opacity-70' : ''}`}
           >
             {/* Month header (always visible) */}
             <button
-              onClick={() => setExpandedMonth(isExpanded ? -1 : index)}
-              className="w-full p-6 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+              onClick={() => {
+                if (isLocked) return;
+                setExpandedMonth(isExpanded ? -1 : index);
+              }}
+              className={`w-full p-6 flex items-center justify-between text-left transition-colors ${isLocked ? 'cursor-default' : 'hover:bg-gray-50'}`}
             >
               <div className="flex items-center gap-4">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-white text-lg"
-                  style={{ backgroundColor: archetype.color }}
+                  className={`w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg ${isLocked ? 'bg-gray-300 text-white' : 'text-white'}`}
+                  style={isLocked ? {} : { backgroundColor: archetype.color }}
                 >
-                  {month.month}
+                  {isLocked ? <Lock className="w-5 h-5" /> : month.month}
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold text-brand-dark">
                     {month.title}
                   </h3>
-                  <p className="text-sm text-gray-500 font-body">{month.theme}</p>
+                  <p className="text-sm text-gray-500 font-body">
+                    {isLocked ? 'Unlock with coaching' : month.theme}
+                  </p>
                 </div>
               </div>
-              {isExpanded ? (
+              {isLocked ? (
+                <Lock className="w-4 h-4 text-gray-300" />
+              ) : isExpanded ? (
                 <ChevronUp className="w-5 h-5 text-gray-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-gray-400" />
               )}
             </button>
 
-            {/* Month content (expandable) */}
-            {isExpanded && (
+            {/* Locked overlay for months 2-6 */}
+            {isLocked && (
+              <div className="px-6 pb-6 text-center">
+                <a
+                  href="https://jsalinas.org/services/executive-coaching.html?utm_source=compass&utm_medium=training&utm_campaign=unlock"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-heading font-semibold bg-brand-terracotta text-white hover:bg-brand-terracotta-dark transition-colors"
+                >
+                  Unlock Full Plan
+                </a>
+              </div>
+            )}
+
+            {/* Month content (expandable) — only for month 1 */}
+            {isExpanded && !isLocked && (
               <div className="px-6 pb-6 animate-fade-in">
                 {/* Research stat */}
                 <div className="mb-6 p-4 rounded-xl border-l-4" style={{ borderColor: archetype.color, backgroundColor: archetype.colorLight + '40' }}>
