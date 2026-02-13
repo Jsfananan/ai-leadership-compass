@@ -218,16 +218,16 @@ export function getDimensionInsight(dimensionId, score) {
   if (!dim) return null;
 
   let level;
-  if (score <= 4) level = dim.low;
-  else if (score <= 6) level = dim.mid;
+  if (score <= 6) level = dim.low;
+  else if (score <= 9) level = dim.mid;
   else level = dim.high;
 
   return {
     ...dim,
     level: level,
     score,
-    maxScore: 8,
-    percentage: Math.round((score / 8) * 100),
+    maxScore: 12,
+    percentage: Math.round((score / 12) * 100),
   };
 }
 

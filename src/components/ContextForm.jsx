@@ -38,7 +38,7 @@ export default function ContextForm({ onSubmit, onBack }) {
               Tell us about you
             </h2>
             <p className="text-gray-500 text-lg">
-              This personalizes your assessment and growth plan.
+              This personalizes your results and growth plan.
             </p>
           </div>
 
@@ -128,7 +128,7 @@ export default function ContextForm({ onSubmit, onBack }) {
                   : 'bg-gray-200 text-gray-400 cursor-not-allowed'
               }`}
             >
-              Begin Assessment
+              Get My Results
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
           </div>

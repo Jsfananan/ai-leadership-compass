@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function ScoreBar({ score, maxScore = 8, color = '#cc6f4d', delay = 0, label, showScore = true }) {
+export default function ScoreBar({ score, maxScore = 12, color = '#cc6f4d', delay = 0, label, showScore = true }) {
   const [animated, setAnimated] = useState(false);
   const percentage = (score / maxScore) * 100;
 

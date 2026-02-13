@@ -61,7 +61,7 @@ export function generateResultsPDF(archetype, dimScores, totalScore, percentile,
   const profileItems = [
     `Role: ${role}`,
     `Industry: ${industry}`,
-    `Score: ${totalScore}/40`,
+    `Score: ${totalScore}/60`,
     `Top ${percentile}% of leaders`,
   ];
   doc.text(profileItems.join('  |  '), margin, y);
@@ -92,13 +92,13 @@ export function generateResultsPDF(archetype, dimScores, totalScore, percentile,
   Object.entries(dimLabels).forEach(([key, label]) => {
     const score = dimScores[key] || 0;
     const barWidth = contentWidth * 0.6;
-    const fillWidth = (score / 8) * barWidth;
+    const fillWidth = (score / 12) * barWidth;
 
     doc.setFontSize(9);
     doc.setFont('helvetica', 'normal');
     doc.setTextColor(...NAVY);
     doc.text(label, margin, y);
-    doc.text(`${score}/8`, margin + contentWidth - 5, y, { align: 'right' });
+    doc.text(`${score}/12`, margin + contentWidth - 5, y, { align: 'right' });
 
     // Bar background
     doc.setFillColor(230, 230, 230);

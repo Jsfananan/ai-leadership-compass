@@ -94,7 +94,7 @@ export default function Results({
                 Top {percentile}% of leaders
               </span>
               <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">
-                Score: {totalScore}/40
+                Score: {totalScore}/60
               </span>
               {role && (
                 <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">

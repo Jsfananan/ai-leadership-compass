@@ -8,7 +8,7 @@ export function calculateScores(answers) {
 
   Object.entries(answers).forEach(([questionId, value]) => {
     const qIndex = parseInt(questionId);
-    const dimIndex = Math.floor(qIndex / 2);
+    const dimIndex = Math.floor(qIndex / 3);
     const dimId = dimensions[dimIndex]?.id;
     if (dimId) {
       dimScores[dimId] += value;
@@ -25,8 +25,8 @@ export function getDimensionPercentages(dimScores) {
     id,
     label: dimensions.find((d) => d.id === id)?.label || id,
     score,
-    maxScore: 8,
-    percentage: Math.round((score / 8) * 100),
+    maxScore: 12,
+    percentage: Math.round((score / 12) * 100),
   }));
 }
 
@@ -47,14 +47,20 @@ export function getTopDimension(dimScores) {
 }
 
 export function getPercentileEstimate(totalScore) {
-  // Simulated percentile distribution based on typical assessment curves
-  const percentileMap = {
-    10: 95, 11: 92, 12: 88, 13: 84, 14: 80,
-    15: 76, 16: 72, 17: 67, 18: 63, 19: 58,
-    20: 53, 21: 48, 22: 43, 23: 38, 24: 34,
-    25: 30, 26: 26, 27: 22, 28: 19, 29: 16,
-    30: 13, 31: 11, 32: 9, 33: 7, 34: 5,
-    35: 4, 36: 3, 37: 2.5, 38: 2, 39: 1.5, 40: 1,
-  };
-  return percentileMap[totalScore] || 50;
+  // Simulated percentile distribution for 15-60 range
+  if (totalScore <= 18) return 95;
+  if (totalScore <= 21) return 90;
+  if (totalScore <= 24) return 85;
+  if (totalScore <= 27) return 78;
+  if (totalScore <= 30) return 70;
+  if (totalScore <= 33) return 60;
+  if (totalScore <= 36) return 50;
+  if (totalScore <= 39) return 40;
+  if (totalScore <= 42) return 32;
+  if (totalScore <= 45) return 24;
+  if (totalScore <= 48) return 17;
+  if (totalScore <= 51) return 11;
+  if (totalScore <= 54) return 6;
+  if (totalScore <= 57) return 3;
+  return 1;
 }

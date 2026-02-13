@@ -34,7 +34,7 @@ export default function RadarChart({ dimScores, color = '#cc6f4d', size = 300 })
   // Data polygon
   const dataPoints = dimensions.map((dim, i) => {
     const score = dimScores[dim.id] || 0;
-    const normalizedScore = score / 8;
+    const normalizedScore = score / 12;
     const angle = startAngle + i * angleStep;
     return polarToCartesian(angle, maxRadius * normalizedScore);
   });
@@ -137,7 +137,7 @@ export default function RadarChart({ dimScores, color = '#cc6f4d', size = 300 })
             fontSize="13"
             fontWeight="700"
           >
-            {pos.score}/8
+            {pos.score}/12
           </text>
         </g>
       ))}

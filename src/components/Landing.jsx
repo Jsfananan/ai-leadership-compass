@@ -79,7 +79,7 @@ export default function Landing({ onStart, challengerName }) {
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
             <p className="mt-5 text-sm text-gray-400 font-heading flex items-center justify-center gap-5">
-              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> 2 minutes</span>
+              <span className="flex items-center gap-1.5"><Clock className="w-3.5 h-3.5" /> 3 minutes</span>
               <span className="w-1 h-1 rounded-full bg-gray-300" />
               <span>100% free</span>
               <span className="w-1 h-1 rounded-full bg-gray-300" />

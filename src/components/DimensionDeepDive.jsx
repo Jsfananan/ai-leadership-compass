@@ -38,8 +38,8 @@ export default function DimensionDeepDive({ dimScores, archetypeColor }) {
           const isExpanded = expandedDim === dimId;
           const Icon = iconMap[insight.icon] || Eye;
           const score = insight.score;
-          const levelLabel = score <= 4 ? 'Developing' : score <= 6 ? 'Established' : 'Advanced';
-          const levelColor = score <= 4 ? '#d97706' : score <= 6 ? '#3b6fa0' : '#16a34a';
+          const levelLabel = score <= 6 ? 'Developing' : score <= 9 ? 'Established' : 'Advanced';
+          const levelColor = score <= 6 ? '#d97706' : score <= 9 ? '#3b6fa0' : '#16a34a';
 
           return (
             <div

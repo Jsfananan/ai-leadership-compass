@@ -94,7 +94,7 @@ export default function ShareCard({ archetype, dimScores, totalScore, percentile
               Top {percentile}%
             </span>
             <span className="stat-badge bg-gray-100 text-gray-600">
-              Score: {totalScore}/40
+              Score: {totalScore}/60
             </span>
             <span className="stat-badge bg-gray-100 text-gray-600">
               Best: {topDimension.label}

@@ -7,7 +7,7 @@ export const dimensions = [
 ];
 
 export const questions = [
-  // Dimension 1: AI Awareness
+  // Dimension 1: AI Awareness (3 questions)
   {
     id: 1,
     dimension: 'awareness',
@@ -30,9 +30,20 @@ export const questions = [
       { value: 4, label: "Map the 'jagged frontier' of AI strengths and gaps in your field" },
     ],
   },
-  // Dimension 2: Tool Proficiency
   {
     id: 3,
+    dimension: 'awareness',
+    text: "How well can you separate AI hype from real capability?",
+    options: [
+      { value: 1, label: "I mostly rely on what media and social media say" },
+      { value: 2, label: "I can tell the difference sometimes but not always" },
+      { value: 3, label: "I evaluate claims against what I've seen AI actually do" },
+      { value: 4, label: "I regularly debunk overpromises and spot underappreciated capabilities" },
+    ],
+  },
+  // Dimension 2: Tool Proficiency (3 questions)
+  {
+    id: 4,
     dimension: 'proficiency',
     text: "How often do you use AI tools in your work?",
     options: [
@@ -43,7 +54,7 @@ export const questions = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     dimension: 'proficiency',
     text: "Your approach to AI prompts is...",
     options: [
@@ -53,9 +64,20 @@ export const questions = [
       { value: 4, label: "I chain prompts together and iterate systematically" },
     ],
   },
-  // Dimension 3: Strategic Integration
   {
-    id: 5,
+    id: 6,
+    dimension: 'proficiency',
+    text: "When an AI tool doesn't give you what you want, you...",
+    options: [
+      { value: 1, label: "Give up or switch to doing it manually" },
+      { value: 2, label: "Try rephrasing my request once or twice" },
+      { value: 3, label: "Iterate on my prompt, add context, or break the task into steps" },
+      { value: 4, label: "Debug systematically \u2014 adjust parameters, chain tools, or switch models" },
+    ],
+  },
+  // Dimension 3: Strategic Integration (3 questions)
+  {
+    id: 7,
     dimension: 'strategy',
     text: "When tackling a big project, AI is...",
     options: [
@@ -66,7 +88,7 @@ export const questions = [
     ],
   },
   {
-    id: 6,
+    id: 8,
     dimension: 'strategy',
     text: "Your team or colleagues see you as...",
     options: [
@@ -76,9 +98,20 @@ export const questions = [
       { value: 4, label: "The one redesigning how your team works with AI" },
     ],
   },
-  // Dimension 4: Human-AI Collaboration
   {
-    id: 7,
+    id: 9,
+    dimension: 'strategy',
+    text: "How do you measure the impact of AI on your work?",
+    options: [
+      { value: 1, label: "I haven't thought about measuring it" },
+      { value: 2, label: "I have a general sense that it saves me time" },
+      { value: 3, label: "I can point to specific tasks where AI measurably improved output" },
+      { value: 4, label: "I track ROI across multiple workflows and report on it" },
+    ],
+  },
+  // Dimension 4: Human-AI Collaboration (3 questions)
+  {
+    id: 10,
     dimension: 'collaboration',
     text: "When AI gives you an output, you typically...",
     options: [
@@ -89,7 +122,7 @@ export const questions = [
     ],
   },
   {
-    id: 8,
+    id: 11,
     dimension: 'collaboration',
     text: "The balance between your thinking and AI's contribution is...",
     options: [
@@ -99,9 +132,20 @@ export const questions = [
       { value: 4, label: "Seamless \u2014 I move fluidly between AI and my own judgment" },
     ],
   },
-  // Dimension 5: Change Leadership
   {
-    id: 9,
+    id: 12,
+    dimension: 'collaboration',
+    text: "When you're stuck on a complex problem, AI is...",
+    options: [
+      { value: 1, label: "Not something I'd think to use for problem-solving" },
+      { value: 2, label: "A starting point \u2014 I'll ask it for ideas" },
+      { value: 3, label: "A thinking partner \u2014 I iterate back and forth to refine solutions" },
+      { value: 4, label: "Deeply integrated \u2014 I use it to stress-test assumptions and explore blind spots" },
+    ],
+  },
+  // Dimension 5: Change Leadership (3 questions)
+  {
+    id: 13,
     dimension: 'leadership',
     text: "When it comes to AI adoption around you, you...",
     options: [
@@ -112,7 +156,7 @@ export const questions = [
     ],
   },
   {
-    id: 10,
+    id: 14,
     dimension: 'leadership',
     text: "Your vision for AI in your field over the next 2 years is...",
     options: [
@@ -120,6 +164,17 @@ export const questions = [
       { value: 2, label: "Hopeful but still forming" },
       { value: 3, label: "Specific \u2014 I know which areas will be most impacted" },
       { value: 4, label: "Actionable \u2014 I'm already preparing for the shifts" },
+    ],
+  },
+  {
+    id: 15,
+    dimension: 'leadership',
+    text: "If your organization asked you to lead an AI initiative, you'd feel...",
+    options: [
+      { value: 1, label: "Unprepared \u2014 I'd need to learn a lot first" },
+      { value: 2, label: "Somewhat ready \u2014 I could contribute but would need support" },
+      { value: 3, label: "Confident \u2014 I have enough experience to guide a team" },
+      { value: 4, label: "Excited \u2014 I already have a roadmap in my head" },
     ],
   },
 ];

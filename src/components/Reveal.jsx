@@ -117,7 +117,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
         <div className="mb-12 opacity-0" style={{ animation: 'fadeInUp 0.6s ease-out 0.3s forwards' }}>
           <div className="display-number" style={{ color: archetype.color }}>
             <AnimatedCounter end={totalScore} duration={2000} delay={400} />
-            <span className="text-gray-300 font-heading" style={{ fontSize: '0.4em' }}>/40</span>
+            <span className="text-gray-300 font-heading" style={{ fontSize: '0.4em' }}>/60</span>
           </div>
           <p className="font-heading text-sm text-gray-400 mt-2">Overall AI Leadership Score</p>
         </div>
@@ -182,7 +182,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
 
         <div className="mt-8 flex flex-col items-center gap-3 opacity-0" style={{ animation: 'fadeInUp 0.5s ease-out 1s forwards' }}>
           <p className="text-gray-500 font-body text-sm">
-            Strongest: <strong className="text-brand-dark">{topDimension.label}</strong> ({topDimension.score}/8)
+            Strongest: <strong className="text-brand-dark">{topDimension.label}</strong> ({topDimension.score}/12)
           </p>
         </div>
 
@@ -205,7 +205,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
             {archetype.name}
           </h2>
           <p className="font-heading text-sm font-semibold" style={{ color: archetype.color }}>
-            Score: {totalScore}/40 &middot; Top {percentile}%
+            Score: {totalScore}/60 &middot; Top {percentile}%
           </p>
         </div>
 

@@ -5,7 +5,7 @@ export const archetypes = {
     tagline: "You see the wave coming. Now it's time to ride it.",
     color: '#8b95a5',
     colorLight: '#e8edf2',
-    range: [10, 16],
+    range: [15, 24],
     description: "You see the landscape clearly \u2014 the headlines, the hype, the genuine opportunities. While others are scrambling, you're building clarity. You see what's real and what's hype. That clarity is your edge \u2014 and it compounds.\n\nThe leaders who truly transform their fields aren't always the first to adopt \u2014 they're the ones who adopt wisely. Your awareness is already an advantage most people don't have.\n\nYou're not starting from zero. You're starting from clarity.",
     strengths: [
       "You spot what others miss \u2014 the real opportunities hiding in the noise",
@@ -26,7 +26,7 @@ export const archetypes = {
     tagline: "You're already ahead because you're willing to look stupid while learning.",
     color: '#d4883e',
     colorLight: '#f5e6d3',
-    range: [17, 22],
+    range: [25, 33],
     description: "While others debate whether AI matters, you're shipping. That matters. Your willingness to break things, learn fast, and iterate puts you ahead of 90% of leaders.\n\nExplorers like you have a rare combination: the curiosity to experiment and the guts to learn from what doesn't work. This is where breakthroughs happen \u2014 not in mastery, but in discovery.\n\nThe next phase isn't about learning more tools. It's about going deeper with the right ones.",
     strengths: [
       "You learn by doing, not by studying \u2014 and you learn fast",
@@ -47,7 +47,7 @@ export const archetypes = {
     tagline: "You're building the bridge others will cross.",
     color: '#C4563A',
     colorLight: '#f5e0d5',
-    range: [23, 28],
+    range: [34, 42],
     description: "You've stopped treating AI as a tool. It's how you think now. The people around you are starting to notice \u2014 and they want what you have.\n\nWhat makes Integrators powerful isn't just tool proficiency \u2014 it's the ability to see connections between AI capabilities and real human challenges. You're building the bridge that others will eventually cross.\n\nThe question now isn't whether AI fits into your work. It's how far you're willing to let it amplify what you do best.",
     strengths: [
       "Your workflows now run on AI + human judgment (true collaboration)",
@@ -68,7 +68,7 @@ export const archetypes = {
     tagline: "You don't just use AI \u2014 you design how others will.",
     color: '#3b6fa0',
     colorLight: '#dce8f3',
-    range: [29, 34],
+    range: [43, 51],
     description: "You don't just use AI \u2014 you design systems around it. While others are learning prompts, you're multiplying impact across your whole organization.\n\nArchitects are rare: you combine deep tool knowledge with strategic vision, seeing not just what AI can do today, but how it reshapes what's possible tomorrow. The influence you're building isn't just personal \u2014 it's organizational.\n\nThe frameworks you create now will define how thousands of people work.",
     strengths: [
       "You see organizational problems; others see bugs. You see systems; others see tasks.",
@@ -89,7 +89,7 @@ export const archetypes = {
     tagline: "AI doesn't replace your leadership. It radiates it.",
     color: '#7b5ea7',
     colorLight: '#ebe4f3',
-    range: [35, 40],
+    range: [52, 60],
     description: "People don't see the AI. They see you. Your output is so far ahead of where it should be that it almost doesn't make sense. That's Amplifier mode.\n\nAmplifiers don't work harder with AI. They work with a clarity and speed that others can't quite explain. But here's what truly sets you apart: you don't hoard this advantage. You're drawn to lifting others into it.\n\nYou're not just AI-enhanced. You're AI-supercharged.",
     strengths: [
       "Your thinking and AI's capabilities move together so smoothly it's just... you",
@@ -107,10 +107,10 @@ export const archetypes = {
 };
 
 export function getArchetype(totalScore) {
-  if (totalScore <= 16) return archetypes.observer;
-  if (totalScore <= 22) return archetypes.explorer;
-  if (totalScore <= 28) return archetypes.integrator;
-  if (totalScore <= 34) return archetypes.architect;
+  if (totalScore <= 24) return archetypes.observer;
+  if (totalScore <= 33) return archetypes.explorer;
+  if (totalScore <= 42) return archetypes.integrator;
+  if (totalScore <= 51) return archetypes.architect;
   return archetypes.amplifier;
 }
 
