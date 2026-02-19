@@ -23,7 +23,7 @@ export default function EmailGate({ archetype, onContinue }) {
         </h2>
 
         <p className="animate-fade-in-up font-body text-gray-500 text-lg mb-10 leading-relaxed" style={{ animationDelay: '0.2s', opacity: 0 }}>
-          Get your full score breakdown, personalized growth plan, and shareable leadership card.
+          Get your full score breakdown and your free personalized 6-month AI growth plan.
         </p>
 
         {/* Newsletter subscribe CTA */}

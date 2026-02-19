@@ -52,7 +52,7 @@ export default function Results({
           <div className="flex items-center gap-2.5">
             <CompassIcon size={28} color={archetype.color} />
             <span className="font-heading font-bold text-brand-dark text-sm tracking-wide">
-              AI Leadership Compass
+              Future-Proof Yourself with AI
             </span>
           </div>
           <a
@@ -81,7 +81,7 @@ export default function Results({
               className="font-heading text-xs font-bold tracking-[0.3em] uppercase mb-8 relative z-10"
               style={{ color: archetype.color }}
             >
-              Your AI Leadership Archetype
+              Your AI Starting Point
             </p>
             <h1 className="font-heading font-black text-brand-dark mb-3 relative z-10" style={{ fontSize: 'clamp(2.5rem, 8vw, 4.5rem)', lineHeight: '1.05', letterSpacing: '-0.02em' }}>
               {archetype.name}
@@ -91,7 +91,7 @@ export default function Results({
             </p>
             <div className="flex items-center justify-center gap-3 flex-wrap relative z-10">
               <span className="stat-badge text-white shadow-sm" style={{ backgroundColor: archetype.color }}>
-                Top {percentile}% of leaders
+                Top {percentile}% of people assessed
               </span>
               <span className="stat-badge bg-white/70 text-brand-dark shadow-sm">
                 Score: {totalScore}/60
@@ -194,10 +194,10 @@ export default function Results({
               Share & Challenge
             </p>
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-brand-dark mb-3">
-              Share Your Archetype
+              Share Your Results
             </h2>
             <p className="font-body text-gray-500 max-w-lg mx-auto">
-              Download your card for LinkedIn, or challenge a colleague to discover theirs.
+              Download your card for LinkedIn, or send the challenge to someone on your team.
             </p>
           </div>
           <ShareCard

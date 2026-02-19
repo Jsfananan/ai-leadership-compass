@@ -68,10 +68,10 @@ export default function ShareCard({ archetype, dimScores, totalScore, percentile
         <div className="p-8 text-center" style={{ backgroundColor: archetype.colorLight }}>
           <div className="flex items-center justify-center gap-2 mb-4">
             <CompassIcon size={28} color={archetype.color} />
-            <span className="font-heading font-bold text-sm text-brand-dark">AI Leadership Compass</span>
+            <span className="font-heading font-bold text-sm text-brand-dark">Future-Proof Yourself with AI</span>
           </div>
           <p className="font-heading text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: archetype.color }}>
-            My AI Leadership Archetype
+            My AI Starting Point
           </p>
           <h2 className="font-heading text-4xl sm:text-5xl font-black text-brand-dark mb-2">
             {archetype.name}

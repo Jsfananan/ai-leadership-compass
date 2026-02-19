@@ -12,7 +12,6 @@ import {
   Target,
   TrendingUp,
   Quote,
-  Lock,
 } from 'lucide-react';
 import { copyToClipboard } from '../utils/sharing';
 import CoachingCTA from './CoachingCTA';
@@ -35,7 +34,7 @@ export default function TrainingGuide({ months, archetype, role }) {
           Your 6-Month Growth Plan
         </h2>
         <p className="font-body text-gray-600 mb-6 leading-relaxed">
-          Personalized for <strong>{role}</strong> at the <strong style={{ color: archetype.color }}>{archetype.name}</strong> level.
+          Personalized for <strong>{role}</strong> at the <strong style={{ color: archetype.color }}>{archetype.name}</strong> starting point.
           Each month builds on the last. Spend 15&ndash;30 minutes per week following these actions.
         </p>
 
@@ -67,61 +66,41 @@ export default function TrainingGuide({ months, archetype, role }) {
       {/* Monthly cards */}
       {months.map((month, index) => {
         const isExpanded = expandedMonth === index;
-        const isLocked = index > 0;
         return (
           <div
             key={index}
-            className={`bg-white rounded-2xl shadow-sm border border-brand-border overflow-hidden transition-all duration-300 ${isLocked ? 'opacity-70' : ''}`}
+            className="bg-white rounded-2xl shadow-sm border border-brand-border overflow-hidden transition-all duration-300"
           >
             {/* Month header (always visible) */}
             <button
-              onClick={() => {
-                if (isLocked) return;
-                setExpandedMonth(isExpanded ? -1 : index);
-              }}
-              className={`w-full p-6 flex items-center justify-between text-left transition-colors ${isLocked ? 'cursor-default' : 'hover:bg-gray-50'}`}
+              onClick={() => setExpandedMonth(isExpanded ? -1 : index)}
+              className="w-full p-6 flex items-center justify-between text-left transition-colors hover:bg-gray-50"
             >
               <div className="flex items-center gap-4">
                 <div
-                  className={`w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg ${isLocked ? 'bg-gray-300 text-white' : 'text-white'}`}
-                  style={isLocked ? {} : { backgroundColor: archetype.color }}
+                  className="w-12 h-12 rounded-xl flex items-center justify-center font-heading font-bold text-lg text-white"
+                  style={{ backgroundColor: archetype.color }}
                 >
-                  {isLocked ? <Lock className="w-5 h-5" /> : month.month}
+                  {month.month}
                 </div>
                 <div>
                   <h3 className="font-heading text-lg font-bold text-brand-dark">
                     {month.title}
                   </h3>
                   <p className="text-sm text-gray-500 font-body">
-                    {isLocked ? 'Unlock with coaching' : month.theme}
+                    {month.theme}
                   </p>
                 </div>
               </div>
-              {isLocked ? (
-                <Lock className="w-4 h-4 text-gray-300" />
-              ) : isExpanded ? (
+              {isExpanded ? (
                 <ChevronUp className="w-5 h-5 text-gray-400" />
               ) : (
                 <ChevronDown className="w-5 h-5 text-gray-400" />
               )}
             </button>
 
-            {/* Locked overlay for months 2-6 */}
-            {isLocked && (
-              <div className="px-6 pb-6 text-center">
-                <a
-                  href="https://jsalinas.org/services/executive-coaching.html?utm_source=compass&utm_medium=training&utm_campaign=unlock"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-heading font-semibold bg-brand-terracotta text-white hover:bg-brand-terracotta-dark transition-colors"
-                >
-                  Unlock Full Plan
-                </a>
-              </div>
-            )}
-
-            {/* Month content (expandable) — only for month 1 */}
-            {isExpanded && !isLocked && (
+            {/* Month content (expandable) */}
+            {isExpanded && (
               <div className="px-6 pb-6 animate-fade-in">
                 {/* Research stat */}
                 <div className="mb-6 p-4 rounded-xl border-l-4" style={{ borderColor: archetype.color, backgroundColor: archetype.colorLight + '40' }}>

@@ -42,7 +42,7 @@ export function generateResultsPDF(archetype, dimScores, totalScore, percentile,
   doc.setTextColor(...WHITE);
   doc.setFontSize(10);
   doc.setFont('helvetica', 'normal');
-  doc.text('AI LEADERSHIP COMPASS', margin, 15);
+  doc.text('FUTURE-PROOF YOURSELF WITH AI', margin, 15);
 
   doc.setFontSize(26);
   doc.setFont('helvetica', 'bold');
@@ -269,13 +269,13 @@ export function generateResultsPDF(archetype, dimScores, totalScore, percentile,
   doc.setFontSize(7);
   doc.setFont('helvetica', 'normal');
   doc.text(
-    'AI Leadership Compass by Joel Salinas  |  jsalinas.org  |  leadershipinchange.com',
+    'Future-Proof Yourself with AI by Joel Salinas  |  jsalinas.org  |  leadershipinchange.com',
     pageWidth / 2,
     y,
     { align: 'center' }
   );
 
-  doc.save(`AI-Leadership-Compass-${archetype.name.replace(/\s+/g, '-')}.pdf`);
+  doc.save(`Future-Proof-AI-Plan-${archetype.name.replace(/\s+/g, '-')}.pdf`);
   } catch (error) {
     console.error('PDF generation error:', error);
     alert('PDF generation failed. Please try the "Copy Entire Plan" option instead.');

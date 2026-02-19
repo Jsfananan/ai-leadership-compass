@@ -38,8 +38,8 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
         <CompassIcon size={100} color={archetype.color} spinning className="mb-12 compass-glow" />
         <p className="font-heading text-2xl sm:text-3xl text-gray-300 max-w-lg leading-relaxed mb-6">
           Analyzing your responses across
-          <span className="text-brand-terracotta font-bold"> 5 dimensions </span>
-          of AI leadership
+          <span className="text-brand-terracotta font-bold"> 5 areas </span>
+          of AI readiness
         </p>
         <div className="flex items-center justify-center gap-2 mt-4">
           {[0, 1, 2].map((i) => (
@@ -64,7 +64,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
           className="font-heading text-xs sm:text-sm font-bold tracking-[0.3em] uppercase mb-10 opacity-0"
           style={{ color: archetype.color, animation: 'fadeInUp 0.6s ease-out 0.2s forwards' }}
         >
-          Your AI Leadership Archetype
+          Your AI Starting Point
         </p>
 
         <div
@@ -119,7 +119,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
             <AnimatedCounter end={totalScore} duration={2000} delay={400} />
             <span className="text-gray-300 font-heading" style={{ fontSize: '0.4em' }}>/60</span>
           </div>
-          <p className="font-heading text-sm text-gray-400 mt-2">Overall AI Leadership Score</p>
+          <p className="font-heading text-sm text-gray-400 mt-2">Overall AI Readiness Score</p>
         </div>
 
         {/* Animated score bars */}
@@ -146,7 +146,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
             className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-heading font-bold text-base"
             style={{ backgroundColor: archetype.color }}
           >
-            Top <AnimatedCounter end={percentile} duration={1500} delay={1700} suffix="%" /> of leaders assessed
+            Top <AnimatedCounter end={percentile} duration={1500} delay={1700} suffix="%" /> of people assessed
           </div>
         </div>
 
@@ -167,7 +167,7 @@ export default function Reveal({ archetype, dimScores, totalScore, percentile, t
           className="font-heading text-xs font-bold tracking-[0.3em] uppercase mb-4 opacity-0"
           style={{ color: archetype.color, animation: 'fadeInUp 0.5s ease-out 0.1s forwards' }}
         >
-          Your Leadership Profile
+          Your AI Profile
         </p>
         <h2
           className="font-heading text-3xl sm:text-4xl font-bold text-brand-dark mb-10 opacity-0"

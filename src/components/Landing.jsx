@@ -28,7 +28,7 @@ export default function Landing({ onStart, challengerName }) {
           {challengerName && (
             <div className="animate-fade-in mb-10 inline-flex items-center gap-2.5 bg-brand-terracotta/10 border border-brand-terracotta/30 text-brand-terracotta-dark px-6 py-3 rounded-full font-heading font-semibold text-sm">
               <Users className="w-4 h-4" />
-              {challengerName} challenged you to discover your archetype
+              {challengerName} challenged you to future-proof yourself with AI
             </div>
           )}
 
@@ -40,24 +40,24 @@ export default function Landing({ onStart, challengerName }) {
             className="animate-fade-in-up font-heading text-xs font-bold tracking-[0.3em] uppercase mb-6"
             style={{ animationDelay: '0.15s', opacity: 0, color: '#C4563A' }}
           >
-            AI Leadership Compass
+            Free AI Assessment
           </p>
 
           <h1
             className="animate-fade-in-up font-heading font-black text-brand-dark leading-[1.05] mb-7"
             style={{ animationDelay: '0.25s', opacity: 0, fontSize: 'clamp(2.2rem, 7vw, 4.2rem)', letterSpacing: '-0.02em' }}
           >
-            What&rsquo;s Your AI
+            Future-Proof Yourself
             <br />
-            Leadership Archetype?
+            with AI
           </h1>
 
           <p
             className="animate-fade-in-up font-body text-lg sm:text-xl text-gray-500 max-w-xl mx-auto mb-4 leading-relaxed"
             style={{ animationDelay: '0.35s', opacity: 0 }}
           >
-            Discover where you stand across 5 research-backed dimensions of AI leadership.
-            Get your archetype, your gaps, and a personalized 6-month growth plan.
+            Answer a few quick questions. Find out where you stand with AI.
+            Get a free personalized 6-month plan built for your role.
           </p>
 
           <p
